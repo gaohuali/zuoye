@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jq方法</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<ul id="a">
+    <li>list item 1</li>
+    <li>list item 2</li>
+    <li>list item 3</li>
+    <li>list item 4</li>
+    <li>list item 5</li>
+</ul>
+<ul>
+	<li>海底月是天上月</li>
+	<li>眼前人是心上人</li>
+	<li>湖心亭赏雪</li>
+</ul>
+    <input id="in1">
+    <select id="in1">
+        <option>春雨绵绵</option>
+        <option>夏日炎炎</option>
+        <option>秋风瑟瑟</option>
+    </select>
+    <div id="in3">曲终未必人散，有情自会重逢；哈哈</div>
+    <div>在这善变的人世间呵呵，我想和你看看什么是永远</div>
+    <div>入夜渐微凉哈哈，繁花落地成霜</div>
+    <div><p>你在远方眺望，耗尽所有目光</p></div>
+    <div>不思量，自难相忘</div>
+    <input type="checkbox" name="list1"  id="one">
+    <input type="checkbox" name="list1" >
+    <input type="checkbox" name="list2" >
+    <div id="n1">
+    <div id="n2" class="abc">
+        <label id="n3">label1</label>
+        <span id="n4">span1</span>
+        <span id="n5" class="abc">span2</span>
+        <span id="n6">span3</span>
+    </div>
+    <div id="n7">
+        <span id="n8" class="abc">span1</span>
+        <span id="n9">span2</span>
+    </div>
+</div>
+	<div id="b">
+		  <span>John</span>
+		  <b>Kim</b>
+		  <span>Adam</span>
+		  <b>Rafael</b>
+		  <span>Oleg</span>
+	</div>
+	<div>
+		  <b>Dave</b>
+		  <span>Ann</span>
+	</div>
+	<div>
+		  <i><span>Maurice</span></i>
+		  <span>Richard</span>
+		  <span>Ralph</span>
+		  <span>Jason</span>
+	</div>
+
+
+</body>
+</html>
+<script type="text/javascript">
+	$('li').filter(':even').css('color','red');
+	//获取焦点
+	// $( "#content" ).delegate( "*", "focus blur", function( event ) {
+ //    var elem = $( this );
+ //    setTimeout(function() {
+ //       elem.toggleClass( "focused", elem.is( ":focus" ) );
+ //    }, 0);
+
+// });
+	$('#in1').focus();
+	//通过div中包含的字匹配
+	$("div:contains('哈哈')").css('background-color','#4da');
+	//含有p的div
+	$("div:has(p)").css('color','#94a');
+	$('div:eq(4):parent').css('color','#63f');
+	//隐藏
+	$('div:eq(4):parent').click(function () {
+		$('div:eq(4):parent').hide(2000);
+	});
+	$('div:eq(4):parent').click(function () {
+		$('div:eq(4):parent').show(2000);
+	});
+	$('div[id]').css('color','orange');
+	//name == list1
+	$('input[name="list1"]').attr('value','点击我，复选框');
+	//不等于
+	$('input[name!="list1"]').val('你是我见过的最美的风景');
+	//^以..开始
+	$('input[name^="li"]').css('font-size','50px');
+	//$以...结束
+	$('input[name$="2"]').attr('checked','true');
+	//*包含...
+	//找到所有含有 id 属性，并且它的 name 属性是以 ... 结尾的
+	$("input[id][name$='1']");
+	//所有ul中的第一个li
+	$('ul li:first-child').css({'font-size':'30px','color':'#d38'});
+	//所有ul中的最后一个li
+	$('ul li:last-child').css({'font-size':'30px','color':'#269'});
+	//所有ul中的第几个li
+	$('ul li:nth-child(2)').css({'font-size':'24px','color':'#72a'});
+	//第一个span
+	$("span:first-of-type").css({'font-size':'25px','color':'#d38'});
+	$(".abc:first-of-type").css('color','blue');
+	$("ul li:nth-last-child(3)").css('background-color','pink');
+	$(".b>span:nth-of-type(2)").css('color','#345');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
